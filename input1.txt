@@ -1,0 +1,4 @@
+Lorem ipsum dolor sit amet
+Вторая строка
+25
+25.0
