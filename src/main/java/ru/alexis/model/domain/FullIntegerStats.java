@@ -21,16 +21,16 @@ public class FullIntegerStats implements IFullNumberStats<Integer> {
 
         this.max = values.stream()
                 .max(Comparable::compareTo)
-                .orElse(null);
+                .orElse(0);
 
         this.min = values.stream()
                 .min(Comparable::compareTo)
-                .orElse(null);
+                .orElse(0);
 
         this.sum = values.stream()
                 .reduce(0, Integer::sum);
 
-        this.average = (double) (sum / count);
+        this.average = count == 0 ? 0.0 : (double) sum / count;
     }
 
     @Override

@@ -21,16 +21,16 @@ public class FullFloatStats implements IFullNumberStats<Float> {
 
         this.max = values.stream()
                 .max(Comparable::compareTo)
-                .orElse(null);
+                .orElse(0f);
 
         this.min = values.stream()
                 .min(Comparable::compareTo)
-                .orElse(null);
+                .orElse(0f);
 
         this.sum = values.stream()
                 .reduce(0.0f, Float::sum);
 
-        this.average = (double) (sum / count);
+        this.average = count == 0 ? 0.0 : (double) sum / count;
     }
 
     @Override
