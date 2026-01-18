@@ -23,7 +23,8 @@ public class DataFileWriter {
             String outputPath,
             boolean appendMode
     ) {
-        var path = Path.of(outputPath + prefix + fileName);
+        Path dirPath = Path.of(outputPath);
+        Path path = dirPath.resolve(prefix + fileName);
 
         try (BufferedWriter bw = Files.newBufferedWriter(
                 path,
